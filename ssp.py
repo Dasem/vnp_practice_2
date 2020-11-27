@@ -30,14 +30,7 @@ def full_generation(model_name, train_test, creator):
     else:
         print(model_name + " have no NEst")
 
-    bad_cols = [col for col in predictors.columns if np.var(predictors[col]) < .2]
-    print(bad_cols)
-
-    new_train = train_test[0].drop(bad_cols, axis=1)
-    new_valid = train_test[1].drop(bad_cols, axis=1)
-
-    print("\n\n" + model_name + " after removing fictitious params")
-    return actualisation((new_train, new_valid, train_test[2], train_test[3]), 100, 500, creator)
+    return model
 
 
 # GradientBoostingClassifier(n_estimators=n_est, learning_rate=.05)

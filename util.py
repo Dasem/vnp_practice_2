@@ -6,4 +6,4 @@ for spl in splits:
     for i in range(0, len(spl), 2):
         temp += '\\x' + spl[i:i + 2]
     result_arrs.append(temp)
-print('.*'.join(result_arrs))
+print('.{0,20}'.join(result_arrs))

@@ -88,4 +88,3 @@ dump_this("StochasticGradientDescent", train_test, lambda i: SGDClassifier())
 dump_this("DecisionTreeClassifier", train_test, lambda i: tree.DecisionTreeClassifier())
 
 dump_this("ExtraTreesClassifier", train_test, lambda i: ExtraTreesClassifier(n_estimators=i))
-

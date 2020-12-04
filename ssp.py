@@ -84,4 +84,4 @@ print(predictors.columns)
 
 train_test = train_test_split(predictors, y, random_state=0)
 
-dump_this("StochasticGradientDescent", train_test, lambda i: SGDClassifier(i['loss'], i['penalty'], i['max_iter']))
+dump_this("StochasticGradientDescent", train_test, lambda i: SGDClassifier(loss=i['loss'], penalty=i['penalty'], max_iter=i['max_iter']))

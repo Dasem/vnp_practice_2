@@ -74,7 +74,7 @@ class FeatureCollector(object):
         self.add_feature(0)  # всё равно у меня такой фигни нет
 
         # Чтение с консоли cin >> x
-        self.add_feature_if_match(b'\xff\x15\xa0\xd0')  # всё равно у меня такой фигни нет
+        self.add_feature_if_match(b'\xff\x15\xa0\xd0')
 
         # Вывод в консоль cout << x
         self.add_feature(1)  # всё равно у меня такая фигня везде

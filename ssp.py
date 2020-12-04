@@ -13,11 +13,6 @@ from sklearn import tree
 def actualisation(train_test, start, end, creator):
     result_model = None  # Оверрайтнется энивей
     max_acc = 0
-    # dump_this("StochasticGradientDescent", train_test, lambda i: SGDClassifier(i['loss'], i['penalty'], i['max_iter']
-    # SGDClassifier(loss="hinge", penalty="l2", max_iter=5)
-    # 'hinge', 'log', 'modified_huber',
-    #         'squared_hinge', 'perceptron', or a regression loss: 'squared_loss',
-    #         'huber', 'epsilon_insensitive', or 'squared_epsilon_insensitive'.
 
     for loss in ['hinge', 'log', 'modified_huber', 'squared_hinge', 'perceptron', 'squared_loss', 'huber',
                  'epsilon_insensitive', 'squared_epsilon_insensitive']:
@@ -29,8 +24,10 @@ def actualisation(train_test, start, end, creator):
                     result_model = model
                     result_mae = mae
                     max_acc = acc
+                    result_params = i
                 print("Acc = %f\t MAE = %f" % (acc, mae))
     print("Result Acc = %f\t MAE = %f" % (max_acc, result_mae))
+    print(f'result_params: {result_params}')
     return result_model
 
 
@@ -80,8 +77,8 @@ y = training.result
 predictors = training.drop(['id', 'result'], axis=1)
 print(predictors.columns)
 
-## Split predictors and target variables into training and validation datasets
-
+# Split predictors and target variables into training and validation datasets
 train_test = train_test_split(predictors, y, random_state=0)
 
-dump_this("StochasticGradientDescent", train_test, lambda i: SGDClassifier(loss=i['loss'], penalty=i['penalty'], max_iter=i['max_iter']))
+dump_this("StochasticGradientDescent", train_test,
+          lambda i: SGDClassifier(loss=i['loss'], penalty=i['penalty'], max_iter=i['max_iter']))

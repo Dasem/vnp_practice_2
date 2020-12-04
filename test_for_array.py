@@ -13,5 +13,3 @@ for model_file in models:
     model = load(model_file)
     predicted = model.predict(testing)
     print(predicted)
-
-

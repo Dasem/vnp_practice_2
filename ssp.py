@@ -46,6 +46,7 @@ def make_prediction(model, x, ids):
     return (model.predict(x))
 
 def dump_this(name, train_test, creator):
+    np.random.seed(0)
     print("\n\nDump " + name + " this ...")
     model = full_generation(name, train_test, creator)
     dump(model, 'trained/'+name+'.joblib')

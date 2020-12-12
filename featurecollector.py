@@ -26,8 +26,9 @@ class FeatureCollector(object):
         # 1 for (i = 0; i < n; i++)
         # (самый дефолтный цикл)
         self.add_feature_if_match(
-            b'\xc7\x85.{0,20}\xff\xff.{0,20}\x00\x00.{0,20}\xeb\x0f.{0,20}\x8b\x85.{0,20}\xff\xff.{0,20}\x83\xc0\x01\x89\x85.{0,20}\xff\xff.{0,20}\xff\xff.{0,20}\x7d\x25')
+            b'[\xc7\xEB].{0,20}\xeb.{0,20}\x8b.{0,20}\x83\xc0.{0,40}[\x7d\x7F]')
 
+        # Не согласовали
         # 2 sum += A[i]
         # (сложение инта с элементом массива)
         self.add_feature_if_match(
@@ -36,7 +37,7 @@ class FeatureCollector(object):
         # 3 min > A[i]
         # (сравнение инта с элементом массива)
         self.add_feature_if_match(
-            b'\x8b\x85.{0,20}\xff\xff\x8b\x8d.{0,20}\xff\xff\x3b\x8c\x85.{0,20}\xff\xff\x7e\x13')
+            b'\x8b.{0,20}\x8b[\x8d\x8c].{0,20}\x3b[\x8c\x4c]\x85')
 
         # 4 min = A[i]
         # (присвоение инту элемента массива)
